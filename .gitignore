@@ -1,0 +1,22 @@
+# Golang (cashier-backend-go)
+cashier-backend-go/bin/
+cashier-backend-go/pkg/
+cashier-backend-go/vendor/
+cashier-backend-go/.env
+cashier-backend-go/.idea/
+cashier-backend-go/.vscode/
+cashier-backend-go/*.log
+cashier-backend-go/*.out
+cashier-backend-go/*.exe
+cashier-backend-go/coverage.out
+
+# Vue.js (cashier-frontend)
+cashier-frontend/node_modules/
+cashier-frontend/dist/
+cashier-frontend/.env.local
+cashier-frontend/.env.development.local
+cashier-frontend/.env.test.local
+cashier-frontend/.env.production.local
+cashier-frontend/.idea/
+cashier-frontend/.vscode/
+cashier-frontend/*.log
