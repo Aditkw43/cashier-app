@@ -8,6 +8,7 @@ type User struct {
 	gorm.Model
 	Username string `gorm:"uniqueIndex;not null"`
 	Password string `gorm:"not null"`
-	Role     string `gorm:"not null"`
+	RoleID   uint   `gorm:"not null"`
+	Role     Role   `gorm:"foreignKey:RoleID"`
 	IsActive bool   `gorm:"default:true"`
 }
