@@ -1,8 +1,8 @@
 package seeders
 
 import (
-	"cashier-backend-go/internal/auth/model"
-	"cashier-backend-go/utils"
+	"cashier-backend-go/internal/common/utils"
+	"cashier-backend-go/internal/domain/auth/model"
 	"log"
 
 	"gorm.io/gorm"

@@ -2,10 +2,12 @@ package main
 
 import (
 	"cashier-backend-go/config"
-	"cashier-backend-go/internal/auth"
-	"cashier-backend-go/internal/auth/model"
-	"cashier-backend-go/internal/menu"
-	menuModel "cashier-backend-go/internal/menu/model"
+	"cashier-backend-go/internal/domain/auth"
+	authModel "cashier-backend-go/internal/domain/auth/model"
+	"cashier-backend-go/internal/domain/menu"
+	menuModel "cashier-backend-go/internal/domain/menu/model"
+	"cashier-backend-go/internal/domain/transaction"
+	transactionModel "cashier-backend-go/internal/domain/transaction/model"
 	"cashier-backend-go/seeders"
 	"log"
 
@@ -14,7 +16,13 @@ import (
 
 func main() {
 	config.InitDB()
-	if err := config.DB.AutoMigrate(&model.User{}, &menuModel.Menu{}); err != nil {
+	if err := config.DB.AutoMigrate(
+		&authModel.User{},
+		&authModel.Role{},
+		&menuModel.Menu{},
+		&transactionModel.Transaction{},
+		&transactionModel.TransactionDetail{},
+	); err != nil {
 		log.Fatalf("Error running migrations: %v", err)
 	}
 
@@ -30,4 +38,5 @@ func main() {
 func InitDomain(r *gin.Engine) {
 	auth.InitAuth(config.DB, r)
 	menu.InitMenu(config.DB, r)
+	transaction.InitTransaction(config.DB, r)
 }
